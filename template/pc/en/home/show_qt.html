@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{$meta_title}</title>
+</head>
+<script src="{THEME_PATH}skin/js/jquery.min.js"></script>
+<link rel="stylesheet" href="{THEME_PATH}skin/css/style.css">
+<script src="{THEME_PATH}skin/js/style.js"></script>
+<style>
+    .xdfsf::before{
+        width: 20px;
+    }
+    .xdfsf{margin-bottom: 20px;}
+    .gjheig0 > div{
+        height: 420px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+</style>
+<body>
+
+
+
+    {template "header.html"}
+    <div class="oiorjkggjr w85" style="margin-top: 30px;">
+        <div class="title" style="font-size: 1.9rem;">{$title}</div>
+        <p class="nr">{mys_date($_inputtime,'Y年m月')}</p>
+    </div>
+    <div class="banners">
+        <div class="sgjrgog2345"><img src="{mys_get_file($dbbjt)}" alt=""></div>
+        <div class="gjgiioojlnh1345">
+            {$content}
+        </div>
+    </div>
+    <div class="gjigorog7546">
+        <div class="sgjgiori45">
+            <p class="gjgiogigjig">{$biaoti2}</p>
+            <p class="xdfsf"></p>
+            {$neirong2}
+        </div>
+    </div>
+    <div class="iogiognjsnkoug w85">
+        <div class="gjheig0">
+            <div>
+                <img src="{mys_get_file($neirong3tu)}" alt="">
+            </div>
+            <div>
+                <div style="padding: 40px;font-size: 12px;">
+                    {$neirong3}
+                </div>
+            </div>
+        </div>
+        <div class="ipiuoi4">
+            <div class="gjrohhet" style="font-size: 12px;">
+                <p>{$nr3xnr}
+                </p>
+            </div>
+            <div class="jidiogr42345">
+                {loop $nr3st $i $c}
+                <div>
+                    <img src="{mys_get_file($c.file)}" alt="">
+                    <p>{$c.title}</p>
+                </div>
+                {/loop}
+            </div>
+            <div class="hogewtgio90">
+                <div>
+                    {$neirong4}
+                </div>
+            </div>
+            <div class="jdsgiogoe789">
+                <div>
+                    <img src="{mys_get_file($tu5)}" alt="">
+                    <p style="text-align: center;">{$tu5biaoti}</p>
+                </div>
+                <div>
+                    <div class="gjgiogr">
+                        {$neirong5}
+                    </div>
+                </div>
+            </div>
+            <div class="omnji7989">
+                {$neirong6}
+            </div>
+            <div class="unygyek8906">
+                <div>
+                    <img src="{mys_get_file($nr7zt)}" alt="">
+                </div>
+                <div>
+                    <div>
+                        <div style="padding: 40px 25px;">
+                            {$neirong7}
+                        </div>
+                        <img src="{mys_get_file($nr7xt)}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="xxx w85"></div>
+    {template "footer.html"}
+    <div class="hd">
+        <div class="top backtop"></div>
+        <div class="bottom backbotm"></div>
+    </div>
+    <script>
+        window.onload=function(){
+            let sjfioe = document.getElementsByClassName("backtop")[0]
+            var timer = null;
+            sjfioe.onclick = function(){
+                cancelAnimationFrame(timer);
+                timer = requestAnimationFrame(function fn(){
+                    var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+                    if(oTop > 0){
+                        scrollTo(0,oTop-150);
+                        timer = requestAnimationFrame(fn);
+                    }else{
+                        cancelAnimationFrame(timer);
+                    } 
+                });
+            }
+            let sjfioe2 = document.getElementsByClassName("backbotm")[0]
+            var timer2 = null;
+            sjfioe2.onclick = function(){
+                cancelAnimationFrame(timer2);
+                timer2 = requestAnimationFrame(function fn(){
+                    var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+                    let body_h = document.body.clientHeight
+                    if(oTop < body_h){
+                        scrollTo(body_h,oTop+150);
+                        timer2 = requestAnimationFrame(fn);
+                    }else{
+                        cancelAnimationFrame(timer2);
+                    } 
+                });
+            }
+        
+        
+            }
+        </script>
+</body>
+</html>

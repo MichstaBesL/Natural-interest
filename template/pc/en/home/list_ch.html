@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{$meta_title}</title>
+</head>
+<script src="{THEME_PATH}skin/js/jquery.min.js"></script>
+<link rel="stylesheet" href="{THEME_PATH}skin/css/style.css">
+<script src="{THEME_PATH}skin/js/style.js"></script>
+<style>
+    .pagesfe2 > div{
+        align-items: center;
+    }
+    .nr {
+    color: #AEACAA;
+    line-height: 35px;
+      font-size: 14px;
+    }
+    .title{line-height: 2.7rem;}
+    .nr {
+  color: #AEACAA;
+  font-size: 1.1rem;
+  font-weight: 200;
+  line-height: 2.5rem;
+  letter-spacing: 1.34px;
+}
+</style>
+<body>
+
+
+{template "header.html"}
+<style>
+    .lsijtjrjtjklnfs{margin-top: 80px;}
+    .gjlgig1_item img{height: 255px;}
+    .pagesfe2{height: 470px;}
+    .lsijtjrjtjklnfs ul li {
+  width: 30%;
+  margin-right: 3.33%;}
+  .ck{margin-bottom: 70px;}
+</style>
+    <div class="zl_centerr w85">
+        <div class="hits" style="height: 20px;margin-bottom: 50px;">
+            <div class="top_title"><span>Natural appeal files</span></div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="dffegwet" style="background: none;margin-bottom: 20px;">
+            {module module=MOD_DIR catid=$catid order=updatetime num=0,1}
+            <div class="pagesfe2">
+                <div style="width: 60%;">
+                    <div style="width: 100%;margin-left: 77px;">
+                        <a href="{$t.url}"><p class="title" style="font-size: 2.4rem;font-weight: 500;">{$t.title}</p></a>
+                        <!-- <p class="xian"></p> -->
+                        <div class="nr">
+                            <p>{$t.description}</p>
+                        </div>
+                        <div class="gjsogggw"><a href="{$t.url}">To read more</a></div>
+                    </div>
+                </div>
+                <div class="sgjweogw12" style="width: 40%;">
+                    <img src="{mys_get_file($t.thumb)}" alt="">
+                </div>
+            </div>
+            {/module}
+            <div class="lsijtjrjtjklnfs">
+                <ul class="gjlgig1">
+                    {module module=MOD_DIR catid=$catid order=updatetime}
+                    <li class="gjlgig1_item"><a href="{$t.url}">
+                        <img src="{mys_get_file($t.thumb)}" alt="">
+                        <div>
+                            <p class="title">{$t.title}</p>
+                            <p class="nr">{$t.description}</p>
+                        </div>
+                    </a></li>
+                    {/module}
+                </ul>
+            </div>
+            <div class="gjlgig1_btn ck">
+                <span>To read more</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="xxx w85"></div>
+    {template "footer.html"}
+</body>
+</html>
+<script>
+    let sjfiog = [
+        {
+            cent_class:"gjlgig1",
+            cbtn_class:"gjlgig1_btn",
+            zp_item:"gjlgig1_item",
+            def:3,
+            bj:6
+        }
+    ]
+    for (let i = 0; i < sjfiog.length; i++) {
+        let {cent_class,cbtn_class,def,bj,zp_item} = sjfiog[i]
+        let cent_class_obj = document.getElementsByClassName(cent_class)[0]
+        let cbtn_class_obj = document.getElementsByClassName(cbtn_class)[0]
+        let zp_item_s = cent_class_obj.getElementsByClassName(zp_item)
+        for (let i = 0; i < zp_item_s.length; i++) {
+            zp_item_s[i].style.display="none"
+        }
+        for (let i = 0; i < def; i++) {
+            if(zp_item_s[i]){
+                zp_item_s[i].style.display="block"
+            }
+        }
+        cbtn_class_obj.setAttribute("onclick","shows('"+cent_class+"','"+def+"','"+bj+"','"+zp_item+"')")
+        
+    }
+    function shows(obj,def,bj,zp_item){
+        let obj_html = document.getElementsByClassName(obj)[0]
+        let zP_item = obj_html.getElementsByClassName(zp_item)
+        let son_num = zP_item.length
+        for (let i = 0; i < (parseInt(bj)+parseInt(def)); i++) {
+            if(zP_item[i]){
+                zP_item[i].style.display="block"
+            }
+        }
+    }
+</script>

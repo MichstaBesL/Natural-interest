@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{$meta_title}</title>
+</head>
+<link rel="stylesheet" href="{THEME_PATH}skin/css/style.css">
+<script src="{THEME_PATH}skin/js/jquery.min.js"></script>
+<script src="{THEME_PATH}skin/js/style.js"></script>
+<style>
+    .xg a:hover{text-decoration: underline;}
+    .contentss .title {
+  margin-top: 0;
+}
+.glsffiepger {
+  margin-top: 0;
+}
+.contentss{margin-top: 40px;}
+</style>
+<body>
+
+
+
+    {template "header.html"}
+    <div class="gjgwgog w85">
+        <h2 class="title" style="font-size: 2.5rem;">{$title}</h2>
+        <p class="nr">{$description}</p>
+        <div class="contentss">
+            <div class="rightsff">
+                <p class="title">Related articles</p>
+                <ul class="xg">
+                    {module module=MOD_DIR catid=$catid order=updatetime num=5}
+                    <li><a href="{$t.url}">{$t.title}</a></li>
+                    {/module}
+                </ul>
+                <div class="xxx" style="margin-top: 30px;"></div>
+                <p class="title">In open exhibition</p>
+                <ul class="xg">
+                    {if $xgzl}
+                    {module module=news IN_id=$xgzl catid=1 more=1 order=displayorder num=5}
+                    <li><a href="{$t.url}">{$t.title}</a></li>
+                    {/module}
+                    {/if}
+                </ul>
+            </div>
+            <style>
+                .glsffiepger p{margin-bottom: 20px;}
+            </style>
+            <div class="glsffiepger">
+                <div style="padding-right: 40px;">
+                    {$content}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="xxx"></div>
+    {template "footer.html"}
+    <div class="hd">
+        <div class="top backtop"></div>
+        <div class="bottom backbotm"></div>
+    </div>
+</body>
+<script>
+     let sjfioe = document.getElementsByClassName("backtop")[0]
+    var timer = null;
+    sjfioe.onclick = function(){
+        cancelAnimationFrame(timer);
+        timer = requestAnimationFrame(function fn(){
+            var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+            if(oTop > 0){
+                scrollTo(0,oTop-150);
+                timer = requestAnimationFrame(fn);
+            }else{
+                cancelAnimationFrame(timer);
+            } 
+        });
+    }
+    let sjfioe2 = document.getElementsByClassName("backbotm")[0]
+    var timer2 = null;
+    sjfioe2.onclick = function(){
+        cancelAnimationFrame(timer2);
+        timer2 = requestAnimationFrame(function fn(){
+            var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+            let body_h = document.body.clientHeight
+            if(oTop < body_h){
+                scrollTo(body_h,oTop+150);
+                timer2 = requestAnimationFrame(fn);
+            }else{
+                cancelAnimationFrame(timer2);
+            } 
+        });
+    }
+</script>
+</html>

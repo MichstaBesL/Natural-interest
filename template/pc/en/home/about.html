@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{$meta_title}</title>
+</head>
+<link rel="stylesheet" href="{THEME_PATH}skin/css/style.css">
+<link rel="stylesheet" href="{THEME_PATH}skin/css/swiper-bundle.min.css">
+<script src="{THEME_PATH}skin/js/jquery.min.js"></script>
+<script src="{THEME_PATH}skin/js/swiper-bundle.min.js"></script>
+<script src="{THEME_PATH}skin/js/style.js"></script>
+<style>
+   .top_title {
+  margin: 15px 0 45px 0px;
+}
+.gjwegiowger1445{
+    line-height: 34px;
+}
+.gjwoigjre89 > div:nth-child(2) > div {
+  padding-left: 100px!important;
+}
+</style>
+<body>
+    {template "header.html"}
+
+
+    <div class="gwjgsoflekgg97 w85" style="margin-top: 40px;">
+        <div class="hits" style="height: 26px;margin-bottom: -19px;">
+            <div style="float:right;">
+                <a href="#gy" class="active">About the natural appeal</a>
+                <a href="#tq">Natural appeal for 14 years</a>
+                <a href="#cb">founder</a>
+            </div>
+        </div>
+        <div id="gy" class="top_title"><span>About the natural appeal</span></div>
+        <div class="gjgorigoreq314">
+            <div><video controls style="width: 100%;object-fit: cover;" poster="src.jpg" src="{mys_get_file(mys_block('gytqsp'))}"></video></div>
+            <div class="sjgoigjle">
+                <div class="gjsjgogew214" style="height: 171px;">
+                    <div>
+                        {html_entity_decode($cat.content)}
+                    </div>
+                </div>
+            </div>
+            <div class="jsfgegwg_btn1 ck">
+                <span>To learn more</span>
+            </div>
+
+
+            <div class="top_title" style="margin: 40px 0;"><span>Natural appeal for 14 years</span></div>
+            <span class="ssb" id="tq"></span>
+            <div class="qqquwiojgwoeg">
+                <div class="listjetoewr">
+                    <ul class="gjwegiowger1445">
+                        {module module=tuwen catid=30 order=displayorder}
+                        <li {if $t.title==mys_block('nianfen')}class="actives"{/if}>{$t.title}</li>
+                        {/module}
+                    </ul>
+                </div>
+                <div class="right_cosnet">
+                    <div class="sgjjiojfklgwrug  agwewgrgyjytu565">
+                        {module module=MOD_DIR catid=$catid order=updatetime page=1}
+                        <div class="items">
+                            <p class="titles" style="font-size: 1.5rem;font-weight: 500;">{$t.title}</p>
+                            <div>
+                                {$t.lbmsnr}
+                            </div>
+                        </div>
+                        {/module}
+                    </div>
+                    <div class="asfdgr5345_btn1 ck" style="text-align: left;">
+                        <span>More</span>
+                    </div>
+                </div>
+            </div>
+            <!-- dfsfwegwegrgwrggwegweg -->
+            <div class="gjgowggtekr98">
+                <span class="ssb" id="cb"></span>
+                <div style="margin: 30px 0;">
+                    <div class="top_title"><span>Founder</span></div>
+                </div>
+                <div class="gjwoigjre89">
+                    <div>
+                        <img src="{mys_get_file($cat.lanmutu)}" alt="">
+                    </div>
+                    <div style="display: flex;align-items: center;">
+                        <div class="gjwoit07t6">
+                            {html_entity_decode($cat.neirong)}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .gjwoigjre89 > div:nth-child(2) > div p{
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        let gjsjgogew214 = document.getElementsByClassName("gjsjgogew214")[0]
+        let hfehgig = gjsjgogew214.clientHeight
+        let def = (hfehgig/2)+10
+        gjsjgogew214.setAttribute("style","height:"+def+"px;")
+        let jsfgegwg_btn1 = document.getElementsByClassName("jsfgegwg_btn1")[0]
+        jsfgegwg_btn1.onclick=function(){
+            gjsjgogew214.setAttribute("style","height:"+hfehgig+"px;")
+        }
+
+        let agwewgrgyjytu565 = document.getElementsByClassName("agwewgrgyjytu565")[0]
+        let itemsfe = agwewgrgyjytu565.getElementsByClassName("items")
+        let def_item_num = 6
+        for (let i = 0; i < itemsfe.length; i++) {
+            itemsfe[i].setAttribute("style","display:none")
+            itemsfe[i].setAttribute("data-issh","false")
+        }
+        for (let i = 0; i < def_item_num; i++) {
+            itemsfe[i].setAttribute("style","display:block")
+            itemsfe[i].setAttribute("data-issh","true")
+        }
+        let asfdgr5345_btn1 = document.getElementsByClassName("asfdgr5345_btn1")[0]
+        let bjjiogw = 6
+        let afjofjew = bjjiogw
+        asfdgr5345_btn1.onclick=function(){
+            for (let i = 0; i < itemsfe.length; i++) {
+                itemsfe[i].getAttribute("data-issh")=="true"?afjofjew++:'';
+            }
+            for (let i = 0; i < afjofjew; i++) {
+                if(itemsfe[i]){
+                    itemsfe[i].setAttribute("style","display:block")
+                }
+            }
+        }
+    </script>
+
+    <!-- footer -->
+    <div class="xxx w85"></div>
+    {template "footer.html"}
+</body>
+</html>

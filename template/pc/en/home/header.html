@@ -1,0 +1,30 @@
+<div class="topsfd">
+    <header class="header w85">
+    <div class="gjiworg214"><div>
+        {module module=nr catid=2 order=displayorder more=1}
+        <a href="{$t.lianjie}" class="fsdfgw3" data-url="{$t.lianjie}">{$t.title}</a> &nbsp; 
+        {/module}
+        <!-- activee -->
+        <script>
+            let fsdfgw3 = document.getElementsByClassName("fsdfgw3") 
+            let url = window.location.href
+            for (let i = 0; i < fsdfgw3.length; i++) {
+                let htmlflerg = fsdfgw3[i].getAttribute("data-url")
+                if(url.search(htmlflerg) != -1){
+                    fsdfgw3[i].setAttribute("class","fsdfgw3 activee")
+                }
+            }
+        </script>
+        <!-- <a href="#">繁體</a> -->
+    </div></div>
+        <div class="logo"><img src="{SITE_LOGO}" alt=""></div>
+        <nav class="nav">
+            <ul class="nav_list">
+                <li class="{if $indexc} active {/if}"><a href="/">Home</a></li>
+                {category module=share pid=0} 
+                <li class="{if IS_SHARE && in_array($catid, $t.catids)} active{/if}"><a href="{$t.url}">{$t.name}</a></li>
+                {/category}
+            </ul>
+        </nav>
+    </header>
+</div>

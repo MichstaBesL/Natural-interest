@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{$meta_title}</title>
+</head>
+<link rel="stylesheet" href="{THEME_PATH}skin/css/style.css">
+<link rel="stylesheet" href="{THEME_PATH}skin/css/swiper-bundle.min.css">
+<script src="{THEME_PATH}skin/js/jquery.min.js"></script>
+<script src="{THEME_PATH}skin/js/swiper-bundle.min.js"></script>
+<script src="{THEME_PATH}skin/js/style.js"></script>
+<style>
+    .gwrggt{
+        border: 0;
+        /* font-size: 2.4rem; */
+font-weight: 500;
+    }
+    .lisgeit1{
+        background: #F5F5F5;
+        padding: 0 30px;
+    }
+    .swiper-slide img{height: 291px;}
+    
+</style>
+<body>
+
+
+    {template "header.html"}
+
+    <div class="ghkgioriog0 w85" style="margin-top: 40px;margin-bottom: 40px;">
+        <!-- <div class="top_title" style="margin: 30px 0;"><span>咨询</span></div> -->
+        <div class="totuowitu79">
+            <div class="lfet4wt4 sagwebv9879">
+                <div>
+                    <p class="stitlewjfo gwrggt">{$title} </p>
+                    <div>
+                        {$content}
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+            <div class="sgjgowr79">
+                <div style="display: flex;justify-content: center;align-items: center;">
+                    <img src="{mys_get_file($thumb)}" style="width: 60%;" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="pagegwgr2r3" style="margin-top: 45px;">
+            <div class="top_title" style="margin: 30px 0;"><span>Inside pages</span></div>
+            <div class="lisgeit1">
+                <div class="swiper mySwiper" style="background: #F5F5F5;padding: 50px 0;">
+                    <div class="swiper-wrapper img_onlcik">
+                        {loop $lunbotu $i $c}
+                        <div class="swiper-slide">
+                            <img src="{mys_get_file($c.file)}" alt="">
+                        </div>
+                        {/loop}
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+                <script>
+                    var swiper = new Swiper(".mySwiper", {
+                      slidesPerView: "auto",
+                      centeredSlides: true,
+                      loop:true,
+                      spaceBetween: 30,
+                      navigation: {
+                        prevEl: ".swiper-button-prev",
+                        nextEl: ".swiper-button-next",
+                      },
+                    });
+                  </script>
+            </div>
+            <style>
+                .swiper-slide {
+                    width: 50%;
+                }
+                .swiper-button-next{
+                    background: rgba(255,255,255,.8);
+                    width: 44px;
+                    border-radius: 30px;
+                }
+                .swiper-button-next::after{
+                    content: "";
+                    background: url(images/right.png);
+                    background-size: 80% auto;
+                    height: 100%;
+                    width: 100%;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+                .swiper-button-prev::after{
+                    content: "";
+                    background: url(images/right.png);
+                    background-size: 80% auto;
+                    height: 100%;
+                    width: 100%;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    transform: rotate(180deg);
+                }
+                .swiper-button-prev {
+                background: rgba(255,255,255,.8);
+                width: 44px;
+                border-radius: 30px;
+                }
+            </style>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="xxx w85"></div>
+    {template "footer.html"}
+
+    <div class="bg_b">
+        <img class="img_cen" src="" alt="">
+        <div class="closerf"></div>
+    </div>
+</body>
+<style>
+    .closerf{position: absolute;top: 30px;right: 30px;}
+    .closerf::before{
+        content: "×";
+        color: #aaa;
+        font-size: 28px;
+    }
+    .img_cen{max-height: 90%;}
+    .bg_b{
+        background: #fff;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        z-index: 999999;
+    }
+</style>
+</html>
+<script>
+    let bg_b = document.getElementsByClassName("bg_b")[0]
+    let img_obj = bg_b.getElementsByClassName("img_cen")[0]
+    let closerf = bg_b.getElementsByClassName("closerf")[0]
+    closerf.onclick=function(){
+        bg_b.style.display="none" 
+    }
+    let img_onlcik = document.getElementsByClassName("img_onlcik")[0]
+    let imgs = img_onlcik.getElementsByTagName("img")
+    for (let i = 0; i < imgs.length; i++) {
+        imgs[i].onclick=function(){
+            bg_b.style.display="flex" 
+            img_obj.src=imgs[i].getAttribute("src")
+        }
+    }
+</script>
+<script>
+    let sjfiog = [
+        {
+            cent_class:"lisgeit1",
+            cbtn_class:"lisgeit1_btn",
+            zp_item:"sagjoeg_item1",
+            def:3,
+            bj:6
+        }
+    ]
+    for (let i = 0; i < sjfiog.length; i++) {
+        let {cent_class,cbtn_class,def,bj,zp_item} = sjfiog[i]
+        let cent_class_obj = document.getElementsByClassName(cent_class)[0]
+        let cbtn_class_obj = document.getElementsByClassName(cbtn_class)[0]
+        let zp_item_s = cent_class_obj.getElementsByClassName(zp_item)
+        for (let i = 0; i < zp_item_s.length; i++) {
+            zp_item_s[i].style.display="none"
+        }
+        for (let i = 0; i < def; i++) {
+            if (zp_item_s[i]) {
+                zp_item_s[i].style.display="block"
+            }
+        }
+        cbtn_class_obj.setAttribute("onclick","shows('"+cent_class+"','"+def+"','"+bj+"','"+zp_item+"')")
+        
+    }
+    function shows(obj,def,bj,zp_item){
+        let obj_html = document.getElementsByClassName(obj)[0]
+        let zP_item = obj_html.getElementsByClassName(zp_item)
+        let son_num = zP_item.length
+        for (let i = 0; i < (bj+def); i++) {
+            if(zP_item[i]){
+                zP_item[i].style.display="block"
+            }
+        }
+    }
+</script>

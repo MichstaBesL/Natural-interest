@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{$meta_title}</title>
+</head>
+<script src="{THEME_PATH}skin/js/jquery.min.js"></script>
+<script src="{THEME_PATH}skin/js/style.js"></script>
+<link rel="stylesheet" href="{THEME_PATH}skin/css/style.css">
+<style>
+    .pagesfe1 ,.pagesfe2{
+    display: flex;
+    height: 650px;
+    overflow: hidden;
+    }
+    .gjgjioigr23r3 a:last-child{margin-right: .5rem;}
+    .title{line-height: 2.7rem;}
+</style>
+<body>
+
+
+    {template "header.html"}
+    <div class="zl_centerr w85">
+            <div class="gjgjioigr23r3" style="text-align: right;">
+                {category module=share pid=$cat.id} 
+                <a href="#t{$key}" class="{if $key==0}active{/if}">{$t.name}</a>
+                {/category}
+            </div>
+        <div class="hits" style="height: 20px;">
+            <div class="top_title"><span>特别策划</span></div>
+        </div>
+        <div style="clear: both;"></div>
+        <div id="tq" class="dffegwet">
+            {category module=share pid=$cat.id} 
+            <div class="pagesfe{if ($key+1)%2==1}1{else}2{/if}">
+                <div>
+                    <div style="width: 60%;margin: 25px auto;padding: 60px 0;">
+                        <a href="{$t.url}"><img class="title_img" src="{mys_thumb($t.thumb)}" alt=""></a>
+                        <p class="xian"></p>
+                        <div class="nr">
+                            {html_entity_decode($t.content)}
+                        </div>
+                        <div class="lsigwigjejg">
+                            <ul>
+                                {module module=MOD_DIR catid=$t.id order=updatetime num=7 return=cc}
+                                <li><a href="{$cc.url}">{$cc.title}</a></li>
+                                {/module}
+
+                            </ul>
+                        </div>
+                        <div class="gjsogggw"  id="dt"><a href="{$t.url}">查看全部</a></div>
+                    </div>
+                </div>
+                <div class="sgjweogw12">
+                    <a href="{$t.url}"><img src="{mys_thumb($t.lanmutu)}" alt=""></a>
+                </div>
+            </div>
+            {/category}
+        </div>
+    </div>
+
+    <div class="xxx w85"></div>
+    {template "footer.html"}
+</body>
+</html>
